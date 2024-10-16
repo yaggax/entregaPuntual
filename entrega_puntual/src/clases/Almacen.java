@@ -1,7 +1,4 @@
 package clases;
-import clases.Libro;
-
-
 public class Almacen {
 
     int tam = 0,i;
@@ -30,8 +27,4 @@ public class Almacen {
         
     }
     }
-
-    
-    
-     
 }

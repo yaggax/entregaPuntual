@@ -40,28 +40,27 @@ public class App {
                     almacen.libros[i].a1.setApellidos(Esdia.readString("Apellidos del autor:   "));
                     almacen.libros[i].a1.setPremio(Esdia.yesOrNo("Tiene algún premio planeta:    "));
                     almacen.libros[i].setTitulo(Esdia.readString("Titulo del libro:    "));
-                    almacen.libros[i].setAño(Esdia.readInt("Año del libro:  "));
-                    almacen.libros[i].setNumPag(Esdia.readInt("Numero de paginas del libro:     "));
-                    almacen.libros[i].setPrecio(Esdia.readFloat("Precio del libro:      "));
+                    almacen.libros[i].setAño(Esdia.readInt("Año del libro:  ",-4000,2025));
+                    almacen.libros[i].setNumPag(Esdia.readInt("Numero de paginas del libro:     ",0,5000));
+                    almacen.libros[i].setPrecio(Esdia.readFloat("Precio del libro:      ",0,999999999));
                     ++i;
                     break;
-
                 case 4:
                     totall=0;
                     totalp=0;
                     System.out.printf("-----------------------------------------------------------------------------------------------------------------------|\r\n" + //
-                                                "| LIBROS EN EL ALMACÉN |\r\n" + //
+                                                "| LIBROS EN EL ALMACÉN                                                                                                  |\r\n" + //
                                                 "|-----------------------------------------------------------------------------------------------------------------------|\r\n" + //
-                                                "| Título | Año Publicación | Autor | Premio planeta | Páginas | Tiempo lectura minutos | Precio|\r\n" + //
+                                                "|  Título   |  Año Publicación|       Autor       |  Premio planeta   |  Páginas  |   Tiempo lectura minutos  |  Precio |\r\n" + //
                                                 "|-----------------------------------------------------------------------------------------------------------------------|\n");
                     for(j=0;j<i;j++){
-                        System.out.printf("| %s | %d | %s %s | %s | %d | %d| %.2f€ |\n",almacen.libros[j].getTitulo(),almacen.libros[j].getAño(),almacen.libros[j].a1.getNombre(),almacen.libros[j].a1.getApellidos(),almacen.libros[j].a1.getPremio() ? "Si" : "No",almacen.libros[j].getNumPag(),almacen.libros[j].getNumPag()*velocidad,almacen.libros[j].getPrecio());
+                        System.out.printf("|  %s  |    %d    |  %s %s  |     %s    |    %d    |    %d   |    %.2f€   |\n",almacen.libros[j].getTitulo(),almacen.libros[j].getAño(),almacen.libros[j].a1.getNombre(),almacen.libros[j].a1.getApellidos(),almacen.libros[j].a1.getPremio() ? "Si" : "No",almacen.libros[j].getNumPag(),almacen.libros[j].getNumPag()*velocidad,almacen.libros[j].getPrecio());
                         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|\n");
                         totall+=(almacen.libros[j].getNumPag()*velocidad);
                         totalp+=almacen.libros[j].getPrecio();
                     }
-                    System.out.printf("| Tiempo de lectura total del almacén: %f min |\r\n",totall);
-                    System.out.printf("| Valor total del almacén: %.2f € |\r\n",totalp);
+                    System.out.printf("| Tiempo de lectura total del almacén:       %f min |\r\n",totall);
+                    System.out.printf("| Valor total del almacén:                   %.2f € |\r\n",totalp);
                     System.out.printf("|-----------------------------------------------------------------------------------------------------------------------\n");
                     break;
                 case 5:
